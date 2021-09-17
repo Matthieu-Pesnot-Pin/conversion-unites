@@ -1,0 +1,117 @@
+@import 'font.scss';
+
+
+html 
+{
+    height: 100%; /* Pour permettre l'ajustement de l'image de fond à la taille de l'écran */
+}
+
+body {
+    background-image: url('../images/fond.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.zoneSaisie{
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 100px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 20px;
+    text-align: center;
+    width: 600px;
+    height: 400px;
+    background-image: url('../images/petittableau.jpg');
+    font-size: 2.3em;
+    padding: 50px;
+}
+
+@mixin chalky {
+    font-family: chalky;
+    color: azure;
+}
+
+.bienvenue {
+    @include chalky();
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.instructions {
+    @include chalky();
+    margin-bottom: 30px;
+    &.details {
+        font-size: 0.8em;
+    }
+}
+
+@mixin inputs {
+    @include chalky();
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+}
+
+#idConnexion {
+    @include inputs();
+    border: 2px solid #AAA;
+    border-radius: 10px;
+    width: 400px;
+    background-color: #151515;
+    margin-bottom: 30px;
+    &:active {
+        box-shadow: 0px 0px 10px rgba($color: #FFF, $alpha: 0.4);
+    }
+}
+
+#enterButton {
+    @include inputs();
+    cursor: pointer;
+    top: 0px;
+    transition-duration: 100ms;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    background-image: url("../images/chalkValider.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    width: 200px;
+    padding-top: 10px;
+    &:hover {
+        top: -5px;
+    }
+}
+
+$maxWidth: 1080px;
+$maxHeight: 500px;
+
+@media (max-device-width: #{$maxWidth}), (max-width: #{$maxWidth}), (max-device-height: #{$maxHeight}) {
+
+    html {
+        font-size: 0.8em;
+        height: 100%;
+        width: auto;
+    }
+
+    .zoneSaisie {
+        height: 400px;
+        width:auto;
+        padding: 40px 30px;
+        
+    }
+
+    #idConnexion {
+        width:200px;
+    }
+
+    #enterButton {
+        width:auto;
+        padding: 0 30px;
+        padding-top: 10px;
+    }
+}

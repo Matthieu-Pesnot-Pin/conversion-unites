@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="./tableaudebord.css">
+    <title>Exercices physique</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <header>
+    </header>
+    <div id = "zonePrincipale">
+        <div class = "sidebar">
+            <div class="listeEleve" id="filterZone"></div>
+            <div id="listeEleve"></div>
+        </div>
+        <div id = "displayDiv">
+            <p id = "nomEleve"></p>
+            <div class = "infosDiv">
+                <div class = "small infos">
+                    <div>Ecriture scient.</div>
+                    <div class = "infosChiffre" id = "moyenneSC"></div>
+                </div>
+                <div class = "small infos">
+                    <div>Unités simples</div>
+                    <div class = "infosChiffre" id = "moyenneCS"></div>
+                </div>
+                <div class = "small infos">
+                    <div>Volumes</div>
+                    <div class = "infosChiffre" id = "moyenneCV"></div>
+                </div>
+                <div class = "small infos">
+                    <div>Masses Volumiques</div>
+                    <div class="infosChiffre" id="moyenneMV"></div>
+                </div>
+                <div class="small infos">
+                    <div>Vitesses</div>
+                    <div class="infosChiffre" id="moyenneVIT"></div>
+                </div>
+            </div>
+            <div id = "graphDiv"></div>
+            
+<!--            <div class = "infosDiv"></div>
+                <div class = "big infos">
+                    <div>Nombre d'exercices</div>
+                    <div class = "infosChiffre" id = "nombreEx"></div>
+                </div>
+                <div class = "big infos">
+                    <div>Moyenne générale</div>
+                    <div class = "infosChiffre" id = "moyenneG"></div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+<!--    <input id = "recherche"/><button id = "searchButton">recherche</button>-->
+
+<script src="../js/jquery.js"></script>
+<script src="./js/path.js"></script>
+<script src="../js/SQL/SqlMain.js"></script>
+<script src = "./js/mainAdmin.js"></script>
+</body> 

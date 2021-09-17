@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Chalky';
+    src: url('../polices/Chalk-Board.otf');
+    // src: url('../polices/Chalk-y\ Sans.otf');
+}
+
+@font-face {
+    font-family: 'HandW';
+    src: url('../polices/JandaElegantHandwriting.ttf');
+}
+
+.chalky {
+    font-family: 'Chalky';
+    color: white;
+    font-stretch : ultra-expanded;
+    
+}
+

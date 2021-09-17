@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form enctype="multipart/form-data" action="import.php" method="post">
+        <!-- MAX_FILE_SIZE doit précéder le champ input de type file -->
+        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+        <!-- Le nom de l'élément input détermine le nom dans le tableau $_FILES -->
+        Envoyez ce fichier : <input name="file" type="file" />
+        <input type="submit" value="importer" />
+      </form>    
+</body>
+<script src="../js/jquery.js"></script>
+<script src="js/import.js"></script>
+</html>
+
+

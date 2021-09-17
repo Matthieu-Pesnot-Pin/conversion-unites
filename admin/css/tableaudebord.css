@@ -1,0 +1,191 @@
+body {
+  background-image: url("../images/bureau.png");
+  background-size: 100%;
+}
+
+#zonePrincipale {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.sidebar {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.titleListElement {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 3px;
+  font-size: 1.7em;
+  margin-bottom: 5px;
+  font-weight: bold;
+  width: 300px;
+}
+
+.filterOptions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+  padding-left: 5px;
+}
+
+.filtreClasseContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+}
+
+#listeEleve {
+  height: 80vh;
+  overflow: scroll;
+}
+
+.studentListElement {
+  display: flex;
+  justify-content: space-between;
+  justify-items: flex-start;
+  transition-property: background-color;
+  transition-duration: 200ms;
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #bde2b6;
+  height: 25px;
+  font-size: 1.1em;
+  user-select: none;
+}
+.studentListElement:hover {
+  background-color: #9fdf93;
+}
+
+.selected {
+  background-color: #68d455;
+}
+
+.badges {
+  display: flex;
+}
+
+.badge {
+  width: 14.5px;
+  height: 21px;
+  margin-bottom: 2px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.95em;
+  background-size: 100% 100%;
+}
+
+.vide {
+  background-image: url("../images/badge.png");
+}
+
+.bad {
+  background-image: url("../images/wrong.ico");
+}
+
+.max {
+  background-image: url("../images/success.ico");
+}
+
+#displayDiv {
+  background-color: #f1f1f1;
+  width: 600px;
+  height: 700px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  padding: 30px;
+  margin: auto;
+  margin-top: 60px;
+}
+
+#nomEleve {
+  font-size: 3em;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+  background-color: #9fdf93;
+  width: 580px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.infosDiv {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #bde2b6;
+  border: 1px solid #000;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding: 15px 10px 10px 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.big {
+  font-size: 1.4em;
+  width: 120px;
+  height: 120px;
+}
+
+.small {
+  font-size: 1.2em;
+  width: 80px;
+  height: 80px;
+}
+
+.infosChiffre {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+
+#graphDiv {
+  text-align: center;
+}
+
+#histo {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.badge {
+  /*    display: inline-block;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-image: url("../images/badge.png");
+      width: 20px;*/
+  margin-left: 5px;
+  margin-right: 5px;
+  position: relative;
+  top: 3px;
+}
+
+/*# sourceMappingURL=tableaudebord.css.map */

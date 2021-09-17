@@ -1,0 +1,361 @@
+$couleurBulles: rgb(0, 183, 255);
+$couleurOK: rgb(117, 226, 141);
+$couleurBAD: rgb(255, 159, 159);
+
+html {
+    width: 95%;
+
+}
+
+@import 'modale.scss';
+
+.dflex {
+    display: flex;
+}
+
+.divTextCenter {
+    text-align: center;
+}
+
+.nav-link {
+    border-radius: 15px;
+}
+
+.activeLink {
+    background-color: rgb(214, 214, 214);
+    border-radius: 20px;
+
+}
+
+#zonePrincipale {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+#zoneListeEleve {
+    overflow: hidden;
+    box-shadow: 3px 0px 8px #000;
+    padding: 5px;
+    height: 85vh;
+    border-radius: 10px;
+}
+
+#loader {
+    z-index: 3;
+    display: none;
+    position: relative;
+    top: -80vh;
+    height: 80vh;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    & #loaderAnim {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        top: 20vh;
+        background-color: white;
+        border-radius: 10px;
+    }
+    
+}
+
+#loader-inline {
+    display: none;
+    text-align: center;
+    $loaderWidth: 300px;
+    width: $loaderWidth;
+    height: 170px;
+    padding-top: 20px;
+
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 30vh;
+    left: calc(50% - #{$loaderWidth / 2});
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+
+#barreProgressionContainer{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 201px;
+    height: 32px;
+    border: 1px solid #000;
+}
+
+#barreProgression {
+
+    width: 0px;
+    height: 30px;
+    background-color: rgb(0, 218, 18);
+}
+
+#loaderImport{
+    z-index: 3;
+    display: none;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    padding-top: 200px;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    & #loaderAnim {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        top: 20px;
+        background-color: white;
+        border-radius: 10px;
+    }
+    
+}
+
+
+
+.ligneFiltre{
+    margin-bottom: 5px;
+    & div:first-child {
+        width: 150px;
+    }
+}
+
+.boutonFiltre {
+    margin-right: 5px;
+}
+
+#filtreClasse {
+    display: flex;
+}
+
+#filtreMoyenne {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#filtreNombreExercice {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.filter-padd-top {
+    padding-top: 6px;
+}
+
+#saisieNoteRef, #saisieNombreExercices {
+    width: 40px;
+}
+
+#listeEleves {
+    margin-left: 0px;
+    height: 70vh;
+    overflow: scroll;
+    user-select: none;
+    min-width: 400px;
+ }
+
+ .eleve {
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    padding-top: 3px;
+    cursor: pointer;
+    min-width: 300px;
+ }
+
+.detailsEleve {
+    display: flex;
+    justify-content: space-around;
+    width: 70px;
+}
+
+.badge {
+    height: 21px;
+}
+
+.badgeW {
+    min-width: 30px;
+    margin: 0 5px;
+}
+
+#infosLoader {
+    z-index: 3;
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    text-align: center;
+    padding-top: 200px;
+    #spinner {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+}
+
+
+#affichageInfos{
+    box-shadow: 3px 0px 10px #000;
+    border-radius: 10px;
+//    height: 800px;
+}
+
+
+
+#nomEleve {
+    font-size: 2em;
+    text-align: center;
+    background-color: #EEE;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.bulles {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.infos
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #000;
+    border-radius: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 15px 10px 25px 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+    min-width: 120px;
+}
+
+.small{
+    font-size: 1.1em;
+    width: 120px;
+    height: 120px;
+}
+
+.infosChiffre {
+    font-weight: bold;
+}
+
+
+.moyenneOK {
+    background-color: $couleurOK;
+}
+
+.moyenneBAD {
+    background-color: $couleurBAD;
+}
+
+#graphDiv {
+    display: flex;
+    margin-top: 100px;
+}
+
+#histo {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+
+}
+
+
+#zoneModifPrincipale {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 150px;
+}
+
+
+
+.modifZone {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    width: 500px;
+    box-shadow: 3px 0px 10px #000;
+    border-radius: 10px;
+}
+
+#switchModeButton {
+    margin-bottom: 40px;
+}
+
+.labelModif {
+    width: 150px;
+}
+
+.modifButtons {
+    display: flex;
+}
+
+.modifButton{
+    width: 180px;
+    user-select: none;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.importPage {
+    padding: 20px 50px;
+}
+
+.importTitle {
+    margin-bottom: 20px;
+}
+
+.importSubTitle{
+    margin-bottom: 40px;
+}
+
+#envoyer-label {
+    position: relative;
+    top:3px
+}
+
+.checkbox{
+    position: relative;
+    margin-right: 6px;
+    top: 7px;
+}
+
+#restorePage {
+    padding: 20px 50px;
+}
+
+
+.restorePageElement {
+    margin-top: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+
+.restoreAutoElement {
+    margin: 20px 0;
+}

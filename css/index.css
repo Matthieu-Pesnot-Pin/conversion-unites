@@ -1,0 +1,125 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Chalky";
+  src: url("../polices/Chalk-Board.otf");
+}
+@font-face {
+  font-family: "HandW";
+  src: url("../polices/JandaElegantHandwriting.ttf");
+}
+.chalky {
+  font-family: "Chalky";
+  color: white;
+  font-stretch: ultra-expanded;
+}
+
+html {
+  height: 100%;
+  /* Pour permettre l'ajustement de l'image de fond à la taille de l'écran */
+}
+
+body {
+  background-image: url("../images/fond.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.zoneSaisie {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 100px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 20px;
+  text-align: center;
+  width: 600px;
+  height: 400px;
+  background-image: url("../images/petittableau.jpg");
+  font-size: 2.3em;
+  padding: 50px;
+}
+
+.bienvenue {
+  font-family: chalky;
+  color: azure;
+  font-size: 1.5em;
+  margin-bottom: 30px;
+}
+
+.instructions {
+  font-family: chalky;
+  color: azure;
+  margin-bottom: 30px;
+}
+.instructions.details {
+  font-size: 0.8em;
+}
+
+#idConnexion {
+  font-family: chalky;
+  color: azure;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1em;
+  border: 2px solid #AAA;
+  border-radius: 10px;
+  width: 400px;
+  background-color: #151515;
+  margin-bottom: 30px;
+}
+#idConnexion:active {
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
+}
+
+#enterButton {
+  font-family: chalky;
+  color: azure;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1em;
+  cursor: pointer;
+  top: 0px;
+  transition-duration: 100ms;
+  position: relative;
+  border: none;
+  background-color: transparent;
+  background-image: url("../images/chalkValider.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  width: 200px;
+  padding-top: 10px;
+}
+#enterButton:hover {
+  top: -5px;
+}
+
+@media (max-device-width: 1080px), (max-width: 1080px), (max-device-height: 500px) {
+  html {
+    font-size: 0.8em;
+    height: 100%;
+    width: auto;
+  }
+
+  .zoneSaisie {
+    height: 400px;
+    width: auto;
+    padding: 40px 30px;
+  }
+
+  #idConnexion {
+    width: 200px;
+  }
+
+  #enterButton {
+    width: auto;
+    padding: 0 30px;
+    padding-top: 10px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

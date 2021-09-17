@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="./css/accueil.css">
+    <title>Exercices physique</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+        <header>
+            <div id = "infosSession">
+                <div class = "etiquette">
+                    <div><label class="hoverReact" id = "nom"><label></label></div>
+                    <div><input id = "date" name = "date" type="date" maxlength=5 disabled required/></div>
+                </div>
+            </div>
+        </header>
+
+    <div id="corpsDePage">
+        <div id = "voletGauche">
+            <nav id = "onglets">
+                <span class="chalky enteteOnglets" id = "onglet0">Ecriture scientifique</span>
+                <span class="chalky enteteOnglets" id = "onglet1">Conversions simples</span>
+                <span class="chalky enteteOnglets noPointer" id = "ongletX">Conversions composées :</span>
+                <span class = "chalky enteteOnglets sousOnglet" id = 'onglet2'>- Volumes</span>
+                <span class = "chalky enteteOnglets sousOnglet" id = 'onglet3'>- Masses Volumiques</span>
+                <span class = "chalky enteteOnglets sousOnglet"id = 'onglet4'>- Vitesses</span>
+            </nav>
+            <div id = "zoneBoutons">
+                <div id = "innerZoneBouton">
+                    <div id = "zoneNouvelExercice">
+                        <span id = "difficultySettings">
+                            <label id="labelDifficulte">Difficulté :</label>
+                            <br>
+                            <span class="niveauDeDifficulte niveauChoisi" id="niveau1">1</span>
+                            <span class="niveauDeDifficulte" id="niveau2">2</span>
+                            <span class="niveauDeDifficulte" id="niveau3">3</span>
+                        </span><br>
+                        <button class="chalkyBox hoverReact" id="boutonNouvelExercice">Nouveau</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="zoneExercice">
+            <div class = "chalky" id="zoneTravail">
+            </div>
+            <div id="zoneValidation">
+                <button class="blackBoardButton" id="boutonValider">Valider</button>
+            </div>
+        </div>
+        <aside>
+            <div class="infos">
+                <div id="infosTitrePrincipal">Statistiques</div>
+                <img src="images/ligne-separation-blanche.png" alt="separateur" class="infosSeparator">
+                <div class="infosResume">
+                    <div class="infosTitres">
+                        <div class="infosTypes">Exercice</div>
+                        <div class="infosNiveaux">
+                            <div class="infosNiveauxTitre">Niveaux</div>
+                            <div class="infosNiveauxNumerosBox">
+                                <div class="infosNiveauxNumero">1</div>
+                                <div class="infosNiveauxNumero">2</div>
+                                <div class="infosNiveauxNumero">3</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="infosCategorie">
+                        <div class="infosNomCategorie">Ecriture Scientifique</div>
+                        <div class="infosBadges">
+                            <img class="infosBadge" id="infosBadgeSC1"></img>
+                            <img class="infosBadge" id="infosBadgeSC2"></img>
+                            <img class="infosBadge" id="infosBadgeSC3"></img>
+                        </div>
+                    </div>
+                    
+                    <div class="infosCategorie">
+                        <div class="infosNomCategorie">Conversions Simples</div>
+                        <div class="infosBadges">
+                            <img class="infosBadge" id="infosBadgeCS1"></img>
+                            <img class="infosBadge" id="infosBadgeCS2"></img>
+                            <img class="infosBadge" id="infosBadgeCS3"></img>
+                        </div>
+                    </div>
+
+                    <div class="infosCategorie">
+                        <div class="infosNomCategorie">Volumes</div>
+                        <div class="infosBadges">
+                            <img class="infosBadge" id="infosBadgeCV1"></img>
+                            <img class="infosBadge" id="infosBadgeCV2"></img>
+                            <img class="infosBadge" id="infosBadgeCV3"></img>
+                        </div>
+                    </div>
+
+                    <div class="infosCategorie">
+                        <div class="infosNomCategorie">Masses Volumiques</div>
+                        <div class="infosBadges">
+                            <img class="infosBadge" id="infosBadgeMV1"></img>
+                            <img class="infosBadge" id="infosBadgeMV2"></img>
+                            <img class="infosBadge" id="infosBadgeMV3"></img>
+                        </div>
+                    </div>
+
+                    <div class="infosCategorie">
+                        <div class="infosNomCategorie">Vitesses</div>
+                        <div class="infosBadges">
+                            <img class="infosBadge" id="infosBadgeVIT1"></img>
+                            <div class="infosBadge" id="infosBadgeVIT2">-</div>
+                            <div class="infosBadge" id="infosBadgeVIT3">-</div>
+                        </div>
+                    </div>
+
+                    <img src="images/ligne-separation-blanche.png" alt="" class="infosSeparator">
+                    <div id="seeStatsButton">
+                        <div id = "seeStatsButtonText">Voir tous mes scores</div>
+                    </div>
+                </div>
+            </div>
+        </aside>        
+    </div>
+    <span class = "zoneFLottanteTransition" id = "zoneFLottante"></span>
+    <span id = "masqueGris"></span>
+
+    <!-- <base href="../conversionunites/"> -->
+    <script type="text/javascript">
+        window.global = window;
+    </script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/declarations.js"></script>
+    <script src="./js/mathsRessources.js"></script>
+    <script src="./js/base.js"></script>
+    <script src="./js/champExercice.js"></script>
+    <script src="./js/unitClass.js"></script>
+    <script src="./js/renduExercice.js"></script>
+    <script src="./js/evenements.js"></script>
+    <script src="./js/zoneCorrection.js"></script>
+    <script src="./js/computeStyle.js"></script>
+    <script src="./js/tests.js"></script>-
+    <script src="./js/lottie.js"></script>
+    <script src="./js/SQL/SqlMain.js"></script>
+    <script src="js/variablesGlobales.js"></script>
+    <script src="./js/accueilStats.js"></script>
+    <script src="./js/main.js"></script>
+    
+</body> 

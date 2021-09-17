@@ -1,0 +1,5 @@
+AuthUserFile /home/clients/1e982788f0d98e10022cb3d5600f0ee5/sites/conversionsdunites.fr/admin/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Accès Restreint"
+AuthType Basic
+require valid-user

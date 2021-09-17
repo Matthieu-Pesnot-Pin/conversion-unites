@@ -1,0 +1,352 @@
+@import 'font.scss';
+
+$largeurMax: 700px;
+$hauteurMax: 500px;
+
+$histoBaseColor: rgb(0, 134, 29);
+$histoBadColor: rgb(211, 113, 88);
+
+%centered {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+html {
+    height: 100%;
+    font-size: 0.8em;
+}
+
+body {
+    background-image: url("../images/fond.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.linedInChalk {
+    border: 1px dashed #FFF;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+}
+
+#blackboard {
+    @extend %centered;
+    @extend .chalky;
+    text-align: center;
+    background-image: url("../images/grandtableau.jpg");
+    background-size: 100% 100%;
+    border-radius: 20px;
+    width: 700px;
+    height: auto;
+    padding: 100px 60px;
+}
+
+#titre {
+ @extend .chalky;
+ font-size: 6em;
+ margin-top: 10px;
+ margin-bottom: 10px;
+}
+
+#nom {
+    @extend .chalky;
+    font-size: 5em;
+    margin-bottom: 30px;
+}
+
+#resume {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#titreResume {
+    @extend .chalky;
+    font-size: 2em;
+}
+
+.informationsStatistiques {
+    @extend .chalky;
+    font-size: 1.4em;
+}
+
+#resumeContainer {
+    display: flex;
+    @extend .chalky;
+    font-size: 1.5em;
+    justify-content: space-around;
+    border: 2px solid white;
+    border-radius: 7px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.badgeMoy {
+    border-left: 1px dashed white;
+    width: 150px;
+    &:first-of-type {
+        border: none;
+    }
+}
+
+.badgeLabel {
+    margin-bottom: 10px;
+}
+
+ .imgBadge {
+    width: 40px;
+    height: 40px;
+ }
+
+ .details {
+     border: 2px solid #FFF;
+     border-radius: 7px;
+     margin-bottom: 30px;
+     display: flex;
+     justify-content: space-between;
+     padding: 10px;
+     text-align: left;
+//     font-size: 0.9em;
+ }
+
+ .detailsGauche {
+    text-align: center;
+    border-right: 1px dashed white;
+    padding-right: 14px;
+    font-size: 1.5em;
+    width: 150px;
+ }
+
+ .detailsNomExercice {
+     font-size: 1.9em;
+ }
+
+ .detailsGaucheBas {
+    margin-top: 17px;
+    display: flex;
+ }
+
+ .detailsBadge {
+     margin-left: auto;
+     margin-right: auto;
+  }
+
+  .imgDetailsBadge {
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+.detailsMoyenne {
+    font-size: 1.4em;
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+}
+
+.detailsDroite {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+ .detailsLigneDetails {
+     display: flex;
+     height: 40px;
+     font-size: 1.5em;
+     padding-top: 7px;
+     width: 470px
+ }
+
+ .imgNiveauValide {
+    & img { 
+        position: relative;
+        width: 30px;
+        top: 2px;
+        margin-right: 10px;
+    }
+ }
+
+ .detailsNiveau {
+    font-size: 1.4em;
+    margin-right: 5px;
+    width: 70px;
+}
+
+ .detailsNombreExercices {
+    position: relative;
+    top: 3px;
+    font-size: 1.2em;
+    margin-right: 5px;
+    width: 90px
+}
+
+
+
+.detailsHisto {
+//    background-color: $histoBaseColor;
+    height: 30px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.detailsHistoBAD {
+    background-color: $histoBadColor;
+}
+
+.detailsHistoTranche1 {
+    background-color: $histoBaseColor;
+}
+
+
+.detailsHistoTranche2 {
+    background-color: lighten($histoBaseColor, 20);
+}
+
+.detailsHistoTranche3 {
+    background-color: lighten($histoBaseColor, 40);
+}
+
+
+#returnButton {
+    @extend .chalky;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    font-size: 3em;
+    cursor: pointer;
+    top: 0px;
+    transition-duration: 100ms;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    background-image: url("../images/chalkValider.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    width: 250px;
+    padding-top: 10px;
+    &:hover {
+        top: -5px;
+    }
+}
+
+@media (max-device-width: #{$largeurMax}), (max-width: #{$largeurMax}), (max-device-height: #{$hauteurMax}) {
+
+    html {
+        font-size: 1.8em;
+    }
+
+
+    #blackboard {
+        padding-top: 250px;
+        padding-bottom: 180px;
+        border-radius: 40px;
+        width: auto;
+    }
+
+    #resumeContainer {
+        border-radius: 20px;
+        flex-direction: column;        
+    }
+
+    .badgeMoy {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: auto;
+        padding: 0px 30px;
+        border-top: 1px dashed white;
+    }
+
+    .imgBadge {
+        width: 80px;
+        height: 80px;
+     }
+    
+
+    .details {
+        display: block;
+        border-radius: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .detailsGauche {
+        margin-bottom: 15px;
+        border: none;
+        text-align: center;
+        width: auto;
+    }
+
+    .detailsNomExercice {
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    .detailsGaucheBas {
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .imgDetailsBadge {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        top: 0px;
+    }
+
+       .detailsDroite {
+        width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5px;
+        padding-top: 15px;
+        border-top: 1px dashed white;
+    }
+
+    .detailsLigneDetails {
+        width: auto;
+    }
+
+    .imgNiveauValide {
+        & img {
+            top: 10px;
+        }
+    }
+
+    .detailsNiveau {
+        font-size: 1.2em;
+        margin-right: 5px;
+        width: 140px
+    }
+    
+    .detailsNombreExercices {
+        font-size: 1em;
+        margin-right: 5px;
+        top: 5px;
+        width: 190px
+    }
+
+    .detailsHisto {
+        position: relative;
+        top: 10px
+    }
+    
+    .detailsNote {
+        margin-left: auto;
+    }
+    
+}

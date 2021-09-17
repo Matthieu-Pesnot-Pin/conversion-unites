@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Gestion Eleves</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/gestioneleve.css" />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <div id="app">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Gestion Eleves</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <router-link active-class="activeLink" :to="{name:'mainpage'}">
+              <span class="nav-link" href="#">Resultats</span>
+            </router-link>
+            <router-link active-class="activeLink" :to="{name: 'modificationpage'}">
+              <span class="nav-link" href="#">Modifier</span>
+            </router-link>
+            <router-link active-class="activeLink" :to="{name:'importpage'}">
+              <span class="nav-link" href="#">Importer</span>
+            </router-link>
+            <router-link active-class="activeLink" :to="{name:'restorepage'}">
+              <span class="nav-link" href="#">Restaurer</span>
+            </router-link>
+            <router-link active-class="activeLink" :to="{name:'ipcheck'}">
+              <span class="nav-link ipCheckMenu" href="#">IpCheck</span>
+            </router-link>
+          </div>
+        </div>
+      </nav>
+      <!-- <router-view :liste='liste' :liste_de_categories='listeDeCategories' :liste_de_badges='listeDeBadges' :liste_de_classes='listeDeClasses'></router-view> -->
+      <!-- <router-view :liste='liste' :liste_de_categories='liste_de_categories' :liste_de_badges='liste_de_badges' :liste_de_classes='liste_de_classes'></router-view> -->
+      <!-- <main_page :liste='liste' :liste_de_categories="listeDeCategories" :liste_de_badges='listeDeBadges' :liste_de_classes='listeDeClasses'></main_page> -->
+      <router-view
+        :liste="liste"
+        :liste_de_categories="listeDeCategories"
+        :liste_de_badges="listeDeBadges"
+        :liste_de_classes="listeDeClasses"
+      ></router-view>
+      <div id="loaderImport">
+        <h4>Import en cours</h4>
+        <lottie-player
+          id="loaderAnim"
+          src="..\\images\\loader.json"
+          background="transparent"
+          speed="1"
+          style="width: 40px; height: 40px"
+          autoplay
+          loop
+        ></lottie-player>
+      </div>
+    </div>
+    <div id="modaleInfos"></div>
+    <div id="masqueGris"></div>
+
+    <script type="text/javascript">
+      window.global = window;
+    </script>
+    <script src="../js/lottie.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="js/modale.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="js/gestionEleve.js"></script>
+  </body>
+
+  <!------------------------------------------------------------------------------------->
+  <!------------------------------------- templates ------------------------------------->
+  <!------------------------------------------------------------------------------------->
+
+  <!------------------------------------------------------------------------------------->
+  <!----------------------------------- Main template ----------------------------------->
+  <!------------------------------------------------------------------------------------->
+
+  <script type="text/x-template" id="mainPage">
+    <div class="row" id="zonePrincipale">
+      <div id="zoneListeEleve">
+        <div class="ligneFiltre" id="filtreClasse">
+          <div>
+            Classe 
+          </div>
+          <liste-deroulante list_label="Classe" type_filtre="filtreClasse" v-bind:list_options="liste_de_classes"/></liste-deroulante>
+        </div>
+        
+        <div class="ligneFiltre" id="filtreMoyenne">
+          <div>
+            Exercice :
+          </div>
+          <liste-deroulante class = "boutonFiltre" list_label="Exercice" type_filtre="filtreExercice" v-bind:list_options="['-', '1-Ecriture', '2-Conversions', '3-Volumes', '4-Volumiques', '5-Vitesses']"></liste-deroulante>
+          <liste-deroulante class = "boutonFiltre" list_label="Niveau" type_filtre="filtreNiveau" v-bind:list_options="['-', 1, 2, 3]"></liste-deroulante>
+          <liste-deroulante class = "boutonFiltre" list_label="Ref" type_filtre="filtreOperateur" v-bind:list_options="['-', 'sup', 'inf']"></liste-deroulante>
+          <input id="saisieNoteRef" type='text' maxlength = 2/>
+      </div>
+
+      <div class="ligneFiltre" id="filtreNombreExercice">
+        <div class="filter-padd-top">Eleves ayant faits</div>
+        <liste-deroulante list_label="plusOuMoins" type_filtre="filtreOperateurNombreExercices" v-bind:list_options="['-', 'plus', 'moins']"/></liste-deroulante>
+        <div class="filter-padd-top">de</div>
+        <input id="saisieNombreExercices" type='text' maxlength = 2 size=1/>
+        <div class="filter-padd-top">Exercices</div>
+      </div>
+
+      <div id="listeEleves">
+            <eleve v-for="eleve of liste" v-bind:eleve="eleve" v-bind:key="eleve.idConnexion" :displayBadge="true"></eleve>
+        </div>
+
+        <div id = "loader">
+            <lottie-player id="loaderAnim" src="..\\images\\loader.json"  background="transparent" speed="1"  style="width: 40px; height: 40px;" autoplay loop></lottie-player>
+        </div>
+      </div>
+      <div id="affichageInfos" class="col-6">
+        <div id = "nomEleve"></div>
+        <div id="graphDiv"></div>
+      </div>
+    </div>
+  </script>
+
+  <!------------------------------------------------------------------------------------->
+  <!------------------------------ Modification template -------------------------------->
+  <!------------------------------------------------------------------------------------->
+
+  <script type="text/x-template" id="modificationPage">
+    <div class="row" id="zoneModifPrincipale">
+      <div id="zoneListeEleve">
+        <div id="filtres">
+            <liste-deroulante list_label="Classe" v-bind:list_options="liste_de_classes"/></liste-deroulante>
+        </div>
+        <div id="listeEleves">
+            <eleve v-for="eleve of liste" v-bind:eleve="eleve" v-bind:key="eleve.idConnexion"></eleve>
+        </div>
+        <div id = "loader">
+            <lottie-player id="loaderAnim" src="..\\images\\loader.json"  background="transparent" speed="1"  style="width: 40px; height: 40px;" autoplay loop></lottie-player>
+        </div>
+      </div>
+      <div class="modifZone">
+        <div id="modifChoice">
+          <h3 id="titreModif">{{ modifModeTitle }}</h3>
+          <button class="btn btn-secondary modifButton" id="switchModeButton" @click="modifyMode">{{ modifModeButtonLabel }} </button>
+        </div>
+        <div class="modifElement breadcrumb">
+          <label class="labelModif">Nom :</label>
+          <input type="text" id="nomEleveInput"/>
+        </div>
+        <div class="modifElement breadcrumb">
+          <label class="labelModif">Prenom :</label>
+          <input type="text" id="prenomEleveInput"/>
+        </div>
+        <div class="modifElement breadcrumb">
+          <label class="labelModif">Classe :</label>
+          <input type="text" id="classeEleveInput"/>
+        </div>
+        <div class="modifElement breadcrumb">
+          <label class="labelModif">Id Connexion :</label>
+          <input type="text" id="idConnexionEleveInput"/>
+        </div>
+        <div class="modifButtons">
+          <button class="btn btn-primary modifButton" id="validerModif" @click="modifyStudent">{{ modifButtonLabel }}</button>
+          <button v-if="this.modificationMode == 'modification'" class="btn btn-danger modifButton" id="supprimerEleve" @click="supressStudent">Supprimer élève</button>
+        </div>
+        <infosresultat></infosresultat>
+      </div>
+    </div>
+  </script>
+
+  <!------------------------------------------------------------------------------------->
+  <!--------------------------------- import template ----------------------------------->
+  <!------------------------------------------------------------------------------------->
+
+  <script type="text/x-template" id="importPage">
+    <div class="importPage">
+      <h2 class = "importTitle">Importer une liste d'élève</h2>
+        <h4 class = "importSubTitle">Import de fichier au format .csv</h4>
+      <p>
+        <a class="btn btn-primary" href="rapports/?C=M;O=D" target='_blank'>Accéder aux anciens rapports</a>
+      </p>
+      <p> A noter : <br>
+        L'entête du csv doit respecter la nomenclature : <strong>Nom;Prenom;Classe;IdConnexion</strong><br>
+        Le champ identifiant peut rester vide, mais l'entête doit être présent - dans ce cas pensez à vérifier que <em>"identifiant auto"</em> est bien activé
+        </p><br>
+
+
+      <form enctype="multipart/form-data" action="import.php" method="post">
+        <div class="breadcrumb">
+          <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+          <div id="envoyer-label">Liste d'élève à importer :&nbsp;</div>
+          <input id = 'boutonChoixListeImport' name="file" type="file" required/><br>
+        </div>
+        <div class = "breadcrumb" :class="bgcolor">
+          <input class="checkbox" name="saveList" type="checkbox" id="saveList" v-model="saveIsChecked" checked/>
+          <label class="form-check-label" for="saveList">sauvegarde de la base de donnée avant import (recommandé - permet la restauration des élèves et de leurs exercices)</label>
+        </div>
+        <div class = "breadcrumb">
+          <input class="checkbox" name="autoCorrectId" type="checkbox" id="autoCorrectId" checked/>
+          <label class="form-check-label" for="autoCorrectId">tentative de correction Auto de l'id (l'application tente d'ajouter les lettres du prénom en cas de doublon)</label>
+        </div>
+        <div class = "breadcrumb">
+          <input class="checkbox" name="autoId" type="checkbox" id="autoId"/>
+          <label class="form-check-label" for="autoId">identifiant auto si l'identifiant est manquant (l'application utilisera le nom de famille de l'élève)</label>
+        </div>
+        <div>
+          <input class="btn btn-primary" type="submit" value="Importer" v-on:click="afficherFenetreProgression($event)" />
+        </div>
+      </form>
+
+    </div>
+  </script>
+
+  <!------------------------------------------------------------------------------------->
+  <!--------------------------------- restore template ---------------------------------->
+  <!------------------------------------------------------------------------------------->
+
+  <script type="text/x-template" id="restorePage">
+    <div class='importPage'>
+      <h2 class='importTitle'>Restauration base de données</h2>
+      <form enctype="multipart/form-data" action="restore.php" method="post">
+
+        <div class="breadcrumb alert-danger">
+          ATTENTION ! La restauration d'une base de donnée entraîne la suppression complète de la base actuelle.&nbsp;
+          <input class="checkbox" type="checkbox" name="understood" id="understood" required/><label for="understood">J'ai compris</label>
+        </div>
+        <div id="restoreManuallyExported" class="restorePageElement">
+          <div>
+            <h4>Restaurer une base depuis un fichier exporté</h4>
+          </div>
+          <div class="breadcrumb">
+            <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+            <div id="envoyer-label">Base de donnée à restaurer :&nbsp;</div>
+            <input id="DBFileName-userExported" name="file" type="file" required/><br>
+          </div>
+          <div>
+            <input class="btn btn-primary" type="submit" @click="displayLoader" value="Restaurer"/>
+          </div>
+        </div>
+      </form>
+        <div id="restoreAutoExported" class="restorePageElement">
+        <div>
+          <h4>Restaurer une base exportée automatiquement</h4>
+        </div>
+        <div class="restoreAutoElement dropdown" id="restoreDropDown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Base exportée automatiquement
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <span v-for="(DBFileName, index) in databaseList">
+              <a class="dropdown-item" href="#" v-bind:id="uniqId(index)" @click="DBClicked(index)">{{ DBFileName }}</a>
+            </span>
+          </div>
+        </div>
+        <div v-if="DBSelected == true">
+          <div class="restoreAutoElement">Export auto choisi pour la restauration : {{ DBFileSelected }} </div>
+          <button class="restoreAutoElement btn btn-primary" @click="restoreDB">Restaurer cette base</button>
+        </div>
+        <div v-if="disclaimerNotChecked == true" class="alert alert-danger">Vous n'avez pas coché la case "jai compris" en haut de la page</div>
+      </div>
+      <!-- <div id="loader-inline">
+        Restauration en cours (cette opération peut prendre quelques minutes)<br>
+        <lottie-player id="lottieRestoreLoader" src="..\\images\\loader-inline.json"  background="transparent"  speed="1"  style="width: 40px; height: 40px;" autoplay loop></lottie-player>
+        <div id='barreProgressionContainer'>
+          <div id="barreProgression"></div>
+        </div>
+      </div> -->
+
+      </div>
+  </script>
+
+
+  <!------------------------------------------------------------------------------------->
+  <!--------------------------------- ipCheck template ---------------------------------->
+  <!------------------------------------------------------------------------------------->
+
+  <script type="text/x-template" id="ipCheck">
+    <div class='importPage'>
+      <h2 class='importTitle'>Vérification d'adresses IP</h2>
+      <div v-if="aucunMefaits">
+        Aucun problemes détectés
+      </div>
+      <div v-else>
+        <h4>Liste de comportements suspects :</h4>
+        <div v-for="suspect of listeSuspectsAAfficher">
+          {{ suspect.nom }}
+          <div v-for="mefait of suspect.listeMefaits">
+            <div class = 'alert alert-danger' v-if = "mefait.indiceCertitude == 10">
+              &nbsp; -- semble avoir accédé au compte de {{ mefait.victime }} (dernier accès le {{ mefait.dateDernierAcces.split('-').reverse().join('/') }})
+            </div>
+            <div class='alert alert-warning' v-else>
+              &nbsp; -- une même ip semble avoir accédé à ce compte et à celui de {{ mefait.victime }} (dernier accès le {{ mefait.dateDernierAcces.split('-').reverse().join('/') }}) -- il est possible qu'une tierce personne aie accédé à ces deux comptes
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+
+    </div>
+  </script>
+
+
+  <!------------------------------------------------------------------------------------->
+  <!--------------------------------- Liste déroulante ---------------------------------->
+  <!------------------------------------------------------------------------------------->
+
+  <script type="text/x-template" id="liste-template">
+    <div class="dropdown">
+      <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+      <button class="btn btn-secondary dropdown-toggle" type="button" :id="list_label" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ list_label }}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <span v-for="(option, index) in list_options">
+          <a class="dropdown-item" :class="type_filtre" href="#" v-bind:id="uniqId(option)">{{ option }}</a>
+        </span>
+      </div>
+    </div>
+  </script>
+
+  <!------------------------------------------------------------------------------------->
+  <!--------------------------------- Eleve de la liste --------------------------------->
+  <!------------------------------------------------------------------------------------->
+
+  <script type="text/x-template" id="eleve-template">
+    <li :id = "eleve.idConnexion" class="list-group-item list-group-item-action eleve">
+      <div class="nomPrenom" style="display: flex;">
+          <div class="classe">{{ eleve.classeEleve }} -&nbsp;</div>
+          <div class="nom">{{ eleve.nomEleve }}&nbsp;</div>
+          <div class="prenom">{{ eleve.prenomEleve }}&nbsp;</div>
+      </div>
+      <div v-if="eleve.noteCiblee >= 0" class = "detailsEleve">
+        <div class="badge badgeW" :class="eleve.studentBadge1">{{ eleve.noteCiblee }}</div>
+        <div class="badge badge-primary" :class="eleve.studentBadge2">{{ eleve.nombreExercices }}</div>
+        <!-- <div class="badge" :class="eleve.studentBadge2" v-if="this.displayBadge==true">{{ eleve.studentBadgeContent2 }}</div> -->
+      </div>
+    </li>
+  </script>
+
+  <!------------------------------------------------------------------------------------->
+  <!----------------------------------- Bulles infos ------------------------------------>
+  <!------------------------------------------------------------------------------------->
+
+  <!-- <script type="text/x-template" id="infoBulle">
+     <div class = "small infos">
+       <div class = "infosLabel">{{ typeLabel() }}</div>
+       <div class = "infosChiffre" :id = "typeId()">{{ moyenneSur20 }} </div>
+    </div>
+  </script> -->
+
+ 
+  <!------------------------------------------------------------------------------------->
+  <!----------------------------------- Ligne bulles ------------------------------------>
+  <!------------------------------------------------------------------------------------->
+
+  <script type="text/x-template" id="ligneBulles">
+    <div class = "bulles">
+      <div class = "small infos" :class="catSuccess(index)" v-for="(bulle, index) in liste_bulles">
+        <div class = "infosLabel">{{ bulle.nomCourtCategorie }}</div>
+        <div class = "infosChiffre" :id = "'moyenne' + bulle.codeCategorie">{{ moyenne(index) }} </div>
+      </div>
+    </div>
+  </script>
+</html>
+
+<script type="text/x-template" id="infos-resultat">
+  <div :class="classMessage">
+    {{ state.message }}
+  </div>
+</script>

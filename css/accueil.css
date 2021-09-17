@@ -1,0 +1,809 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Chalky";
+  src: url("../polices/Chalk-Board.otf");
+}
+@font-face {
+  font-family: "HandW";
+  src: url("../polices/JandaElegantHandwriting.ttf");
+}
+.chalky, .infosCategorie, .infosTitres, #infosTitrePrincipal {
+  font-family: "Chalky";
+  color: white;
+  font-stretch: ultra-expanded;
+}
+
+.chalky, .infosCategorie, .infosTitres, #infosTitrePrincipal {
+  font-family: "Chalky", sans-serif;
+  color: white;
+  letter-spacing: 1px;
+  transform: scaleY(0.9);
+}
+
+.chalkyBox {
+  background-color: black;
+  color: white;
+  font-family: "chalky", sans-serif;
+  font-size: 1.9em;
+  background-size: 100% 100%;
+  border: none;
+  padding: 5px;
+  border: 3px solid rgba(240, 132, 9, 0.555);
+}
+
+html {
+  height: 100%;
+  /* Pour permettre l'ajustement de l'image de fond à la taille de l'écran */
+}
+
+body {
+  background-image: url("../images/fond.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.hoverReact:hover {
+  box-shadow: 2px 2px 10px black;
+}
+
+.hoverReact:focus {
+  outline: none;
+}
+
+button {
+  border-radius: 5px;
+  padding: 10px;
+  width: 150px;
+}
+
+/************************************* INFOS SESSIONS **********************************/
+#infosSession {
+  display: flex;
+  margin-bottom: 90px;
+  margin-top: 40px;
+  justify-content: space-around;
+}
+
+#date {
+  color: black;
+  font-size: 1.2em;
+  font-family: "HandW", sans-serif;
+  border-radius: 5px;
+  background-color: white;
+  border: none;
+  margin-left: 95px;
+  margin-top: 10px;
+}
+
+#nom {
+  background-color: none;
+  border: none;
+  font-family: "HandW", sans-serif;
+  font-size: 1.6em;
+}
+
+.etiquette {
+  background-image: url("../images/etiquette.png");
+  background-size: 100% 100%;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  background-color: none;
+  border: none;
+  font-size: 1.5em;
+  height: 110px;
+  width: 600px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  width: 450px;
+  margin-bottom: 40px;
+}
+
+/************************************* CORPS DE PAGE **********************************/
+#corpsDePage {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+#voletGauche {
+  width: 18vw;
+  position: fixed;
+  left: 5%;
+  top: 15%;
+}
+
+#onglets {
+  background-image: url("../images/tableau.jpg");
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 35px 30px 35px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.enteteOnglets {
+  user-select: none;
+  text-align: left;
+  position: relative;
+  color: white;
+  font-size: 1.8em;
+  line-height: 1.2em;
+  padding-bottom: 3px;
+  margin-bottom: 5px;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.noPointer {
+  cursor: default !important;
+}
+
+.sousOnglet {
+  margin-left: 20px;
+}
+
+.selectedOnglet {
+  background-image: url("../images/chalkUnderline.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0px 80%;
+}
+
+/************************************* ZONE BOUTONS **********************************/
+#zoneBoutons {
+  background-image: url("../images/zoneBoutonsRedimPetite.png");
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  padding-top: 40px;
+  position: relative;
+  top: -42px;
+  max-width: 250px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#innerZoneBouton {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/************************************* ZONE NOUVEL EXERCICE **********************************/
+#zoneNouvelExercice {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px 10px 15px 10px;
+  width: auto;
+  font-family: "HandW", sans-serif;
+}
+
+#labelDifficulte {
+  font-size: 1.8em;
+  text-decoration: underline;
+}
+
+#indicateurDifficulte {
+  text-align: center;
+  font-size: 1.8em;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.niveauDeDifficulte {
+  top: 0px;
+  position: relative;
+  text-align: center;
+  font-size: 1.8em;
+  margin-right: 10px;
+  margin-left: 5px;
+  padding: 1px 5px;
+  margin-top: 10px;
+  user-select: none;
+  border: 2px solid transparent;
+  transition-property: top;
+  transition-duration: 100ms;
+  width: 20px;
+  display: inline-block;
+}
+.niveauDeDifficulte:hover {
+  cursor: pointer;
+  top: -4px;
+}
+
+.niveauChoisi {
+  border: 2px solid green;
+  border-radius: 85% 15% 85% 15%;
+}
+
+#barreDifficulte {
+  position: relative;
+  top: 7px;
+  width: 70px;
+}
+
+#boutonNouvelExercice {
+  position: relative;
+  margin-top: 10px;
+}
+
+#boutonNouvelExercice:active {
+  box-shadow: 0px 2px 10px black inset;
+}
+
+/************************************* ZONE EXERCICE **********************************/
+#zoneExercice {
+  text-align: center;
+  width: 50vw;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: 100% 100%;
+  border-radius: 10px;
+}
+
+#zoneTravail {
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+.exTitle {
+  font-size: 3em;
+  position: relative;
+}
+
+.exConsigne {
+  font-size: 1.4em;
+  position: relative;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.detailsConsigne {
+  font-size: 1.3em;
+  margin: auto;
+  padding: 20px 0px;
+  border-bottom: 2px dashed #FFF;
+  width: 80%;
+}
+.detailsConsigne:last-child {
+  border-bottom: none;
+}
+
+/************************************* LIGNE COMPLETE **********************************/
+.ligneComplete {
+  text-align: left;
+  margin-left: 30px;
+  margin-right: 30px;
+  display: flex;
+}
+
+.correctionImg {
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 200ms;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 13px;
+  bottom: 0px;
+}
+.correctionImg:hover {
+  bottom: 5px;
+}
+.correctionImg img {
+  width: 40px;
+  height: 40px;
+}
+
+lottie-player {
+  display: inline-block;
+  position: relative;
+  padding: 0px;
+  padding-right: 4px;
+  margin: 0 !important;
+  top: 0px;
+}
+
+.exercice {
+  width: 550px;
+  padding: 8px;
+  border-radius: 5px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 1.2em;
+  display: flex;
+  border: solid 2px white;
+}
+
+.question {
+  display: inline-block;
+  width: 270px;
+  text-align: left;
+}
+
+.reponse {
+  width: auto;
+}
+
+.inputExp {
+  position: relative;
+  bottom: 10px;
+}
+
+#zoneValidation {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blackBoardButton {
+  position: relative;
+  border: none;
+  background-image: url("../images/chalkValider.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  bottom: 70px;
+  border-radius: 50%;
+  padding: 15px;
+  color: white;
+  font-family: "chalky", sans-serif;
+  font-size: 2.5em;
+  transition-property: all;
+  transition-duration: 100ms;
+  cursor: pointer;
+}
+.blackBoardButton:hover {
+  bottom: 75px;
+}
+
+/************************************* ASIDE **********************************/
+aside {
+  width: 18vw;
+  right: 5%;
+  font-size: 1.1em;
+  position: fixed;
+  top: 15%;
+}
+
+.infos {
+  width: -42vw;
+  background-image: url("../images/tableau.jpg");
+  background-size: 100% 100%;
+  padding: 30px;
+  padding-top: 55px;
+  padding-bottom: 60px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+#infosTitrePrincipal {
+  font-size: 3em;
+}
+
+.infosSeparator {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.infosTitres {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2em;
+}
+
+.infosTypes {
+  width: 100px;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.infosNiveaux {
+  display: flex;
+  flex-direction: column;
+}
+
+.infosNiveauxNumerosBox {
+  display: flex;
+  width: 80px;
+  justify-content: space-between;
+}
+
+.infosNiveauxNumero {
+  margin: 0 5px;
+  margin-left: 8px;
+}
+
+.infosCategorie {
+  width: auto;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  padding: 3px;
+  border-radius: 7px;
+}
+
+.infosNomCategorie {
+  font-size: 1.5em;
+}
+
+.infosBadges {
+  display: flex;
+  width: 80px;
+  justify-content: space-between;
+}
+
+.infosBadge {
+  width: 25px;
+  height: 25px;
+}
+
+#seeStatsButton {
+  background-image: url("../images/post-it-2.png");
+  background-size: 100% 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  width: 190px;
+  height: 170px;
+  font-size: 1.7em;
+  font-family: "HandW", sans-serif;
+  display: flex;
+}
+
+#seeStatsButtonText {
+  margin: auto;
+  margin-top: 65px;
+  width: 175px;
+  transform: rotate(-7deg);
+  user-select: none;
+  cursor: pointer;
+  font-size: 0.9em;
+  line-height: 1.3em;
+}
+
+/************************************* SPECIAL **********************************/
+#zoneFLottante {
+  position: absolute;
+  text-align: center;
+  border-radius: 5px;
+  z-index: 3;
+  font-size: 1.2em;
+  background-image: url("../images/feuilleCorrection.png");
+  background-size: 100% 100%;
+  padding: 80px 30px 30px 50px;
+  width: 450px;
+  height: 330px;
+}
+
+.zoneFLottanteTransition {
+  transition-property: top;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.25, -0.5, 0.65, 1.5);
+}
+
+.conversionTable {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 10px;
+}
+
+.conversionTableElement {
+  border: 1px solid black;
+  width: 35px;
+  text-align: center;
+}
+
+.importantUnit {
+  border-right: 3px solid black;
+}
+
+.elementDeCorrection {
+  display: inline-block;
+  font-size: 1.2em;
+  padding: 5px;
+  margin-top: 15px;
+}
+
+.elementDeCorrectionTitre {
+  display: inline-block;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding-bottom: 18px;
+}
+
+.reponseZoneCorrection {
+  border: 3px solid green;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 20px;
+}
+
+.cadreVert {
+  border: 3px solid green;
+  border-radius: 5px;
+  margin: 0 3px;
+}
+
+.cadreRouge {
+  border: 3px solid red;
+  margin: 0 3px;
+  border-radius: 5px;
+}
+
+.cadreBleu {
+  border: 3px solid blue;
+  margin: 0 3px;
+  border-radius: 5px;
+}
+
+.fractionUnit {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  vertical-align: middle;
+  padding: 3px;
+}
+
+.fractionUpperPart {
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#masqueGris {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+  opacity: 0.6;
+  visibility: hidden;
+  z-index: 1;
+  position: fixed;
+}
+
+#startUnit {
+  border: 2px solid red;
+  border-radius: 50%;
+  width: 30px;
+  height: 20px;
+  display: inline-block;
+  position: absolute;
+}
+
+#destUnit {
+  border: 2px solid green;
+  border-radius: 50%;
+  width: 30px;
+  height: 20px;
+  display: inline-block;
+  position: absolute;
+}
+
+/***********************************************************************************************/
+/***********************************************************************************************/
+/************************************* RESPONSIVE **********************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+@media (min-width: 1280px) and (max-width: 1750px) {
+  body {
+    font-size: 0.8em;
+  }
+
+  #voletGauche {
+    left: 5px;
+    top: 15px;
+    min-width: 280px;
+  }
+
+  .inputExp {
+    bottom: 7px;
+  }
+
+  aside {
+    right: 5px;
+    min-width: 300px;
+    top: 15px;
+    height: auto;
+  }
+
+  #seeStatsButton {
+    width: 170px;
+    height: 150px;
+    padding-top: 0;
+  }
+
+  .infos {
+    height: 80vh;
+  }
+}
+@media (max-device-width: 1280px), (max-width: 1280px), (max-device-height: 500px) {
+  html {
+    height: auto;
+  }
+
+  #corpsDePage {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: auto;
+    flex-direction: column;
+  }
+
+  h1 {
+    width: 250px;
+  }
+
+  #infosSession {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  .etiquette {
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+    width: auto;
+    height: auto;
+    padding: 20px;
+  }
+
+  #nom {
+    font-size: 1.3em;
+  }
+
+  #date {
+    margin-left: 70px;
+    width: 200px;
+    font-size: 1em;
+  }
+
+  #voletGauche {
+    margin: auto;
+    margin-bottom: -30px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    padding-top: 28px;
+    position: relative;
+    left: auto;
+    width: 340px;
+  }
+
+  .enteteOnglets {
+    font-size: 2em;
+  }
+
+  #zoneBoutons {
+    top: -42px;
+    width: 300px;
+  }
+
+  #zoneNouvelExercice {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #boutonNouvelExercice {
+    margin-top: 20px;
+  }
+
+  #zoneExercice {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 0 0 30px 0 !important;
+    border-radius: 10px;
+  }
+
+  #zoneTravail {
+    padding: 12px;
+    text-align: center;
+    padding-top: 40px !important;
+    margin-top: 0 !important;
+  }
+
+  .exTitle {
+    margin-top: 0;
+  }
+  .exTitle, .exTitle chalky {
+    transform: scaleY(0.9);
+  }
+
+  .exConsigne {
+    font-size: 1.5em;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .detailsConsigne {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .ligneComplete {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .correctionImg {
+    font-size: 0.7em;
+    margin-right: 0;
+    margin-left: 0;
+    padding-top: 30px;
+  }
+
+  lottie-player {
+    top: 0px;
+    transition-duration: 100ms;
+  }
+
+  .question {
+    width: auto;
+    padding-right: 5px;
+    margin-bottom: 10px;
+  }
+
+  .reponse {
+    width: auto;
+  }
+
+  .exercice {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+  }
+
+  aside {
+    width: 18vw;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1em;
+    position: relative;
+    right: auto;
+    width: 340px;
+  }
+
+  #zoneFLottante {
+    font-size: 0.9em;
+    padding: 70px 5px 5px 20px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .zoneFLottanteTransition {
+    transition-duration: 0.5s;
+  }
+}
+
+/*# sourceMappingURL=accueil.css.map */

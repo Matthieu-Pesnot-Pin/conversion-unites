@@ -1,0 +1,8 @@
+Liste des élèves ajoutés dont l'id est différent du nom de famille
+
+RICHARD  Jules 3e D : nouvel id = RICHARD J
+RUSTANT Louise 3e F : nouvel id = RUSTANTL
+RICHARD Livie 2de 5 : nouvel id = RICHARDL
+AUVRAY Antoine 1re 8 : nouvel id = AUVRAYA
+MARES Guillaume 1re 8 : nouvel id = MARESG
+MOLIN Mathias 1re 8 : nouvel id = MOLINM
